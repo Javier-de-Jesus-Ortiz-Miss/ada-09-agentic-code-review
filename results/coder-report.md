@@ -2,6 +2,10 @@
 
 ## Change
 
+Change ID: CR-ADA09-01
+Branch: ada09/cr-search-field
+Base commit: 057bd7bd0791fc2387a0a79b07c8e44480419c61
+
 I implement the approved optional field selector for the real customer search function and CLI. I preserve existing two-argument calls and default name/email matching. I began from implementation parent commit `1686d0d`, after the approved baseline and run-context preparation.
 
 ## Requirements Covered
