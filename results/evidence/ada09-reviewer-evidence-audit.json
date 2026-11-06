@@ -1,0 +1,146 @@
+{
+  "complete_actual_diff_sections": 26,
+  "sections": [
+    {
+      "header": "diff --git a/README.md b/README.md",
+      "line_count": 35
+    },
+    {
+      "header": "diff --git a/results/coder-report.md b/results/coder-report.md",
+      "line_count": 78
+    },
+    {
+      "header": "diff --git a/results/commits.txt b/results/commits.txt",
+      "line_count": 9
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-agent-contexts.json b/results/evidence/ada09-agent-contexts.json",
+      "line_count": 13
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-baseline-files.json b/results/evidence/ada09-baseline-files.json",
+      "line_count": 23
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-candidate-environment.log b/results/evidence/ada09-candidate-environment.log",
+      "line_count": 10
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-candidate-files.json b/results/evidence/ada09-candidate-files.json",
+      "line_count": 26
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-candidate-gate.log b/results/evidence/ada09-candidate-gate.log",
+      "line_count": 17
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-baseline.exitcode b/results/evidence/ada09-coder-baseline.exitcode",
+      "line_count": 7
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-baseline.log b/results/evidence/ada09-coder-baseline.log",
+      "line_count": 18
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-green.exitcode b/results/evidence/ada09-coder-green.exitcode",
+      "line_count": 7
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-green.log b/results/evidence/ada09-coder-green.log",
+      "line_count": 11
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-inspection.exitcode b/results/evidence/ada09-coder-inspection.exitcode",
+      "line_count": 9
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-inspection.log b/results/evidence/ada09-coder-inspection.log",
+      "line_count": 20
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-red.exitcode b/results/evidence/ada09-coder-red.exitcode",
+      "line_count": 7
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-red.log b/results/evidence/ada09-coder-red.log",
+      "line_count": 1392
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-verify.exitcode b/results/evidence/ada09-coder-verify.exitcode",
+      "line_count": 7
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-coder-verify.log b/results/evidence/ada09-coder-verify.log",
+      "line_count": 19
+    },
+    {
+      "header": "diff --git a/results/evidence/ada09-verification-commands.json b/results/evidence/ada09-verification-commands.json",
+      "line_count": 33
+    },
+    {
+      "header": "diff --git a/results/pr.diff b/results/pr.diff",
+      "line_count": 1930
+    },
+    {
+      "header": "diff --git a/results/run-context.md b/results/run-context.md",
+      "line_count": 32
+    },
+    {
+      "header": "diff --git a/results/verification-report.md b/results/verification-report.md",
+      "line_count": 43
+    },
+    {
+      "header": "diff --git a/src/customer_search/cli.py b/src/customer_search/cli.py",
+      "line_count": 20
+    },
+    {
+      "header": "diff --git a/src/customer_search/search.py b/src/customer_search/search.py",
+      "line_count": 28
+    },
+    {
+      "header": "diff --git a/tests/test_cli_fields.py b/tests/test_cli_fields.py",
+      "line_count": 98
+    },
+    {
+      "header": "diff --git a/tests/test_search_fields.py b/tests/test_search_fields.py",
+      "line_count": 101
+    }
+  ],
+  "red_log_total_lines": 1386,
+  "red_log_failure_summary_entries": 79,
+  "red_log_error_categories": {
+    "TypeError: search_customers() got an unexpected keyword argument 'field'": 43,
+    "AssertionError: assert 2 == 0": 13,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...ode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field   ANA  \\n').returncode": 1,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field all\\n').returncode": 2,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...e=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field   L\u00d3PEZ  \\n').returncode": 1,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field name\\n').returncode": 3,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-... stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field   ANA.LOPEZ  \\n').returncode": 1,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field email\\n').returncode": 3,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field example.com\\n').returncode": 1,
+    "+  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field L\u00f3pez\\n').returncode": 1,
+    "AssertionError: assert 0 == 2": 1,
+    "+  where 0 = CompletedProcess(args=['$PYTHON', '-...xample.com\\nC003 | Carla M\u00e9ndez | carla.mendez@example.com\\nC004 | Daniel Ruiz | daniel.ruiz@example.com\\n', stderr='').returncode": 1,
+    "+  and   2 = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field all\\n').returncode": 1,
+    "AssertionError: assert 'Error:'": 6,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field all\\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field all\\n').stderr": 2,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field name\\n' = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field name\\n').stderr": 2,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field email\\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field email\\n').stderr": 2,
+    "AssertionError: assert 'invalid choice'": 16,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field ana\\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field ana\\n').stderr": 8,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field id\\n' = CompletedProcess(args=['$PYTHON', '-...turncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field id\\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field Name\\n' = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field Name\\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field ALL\\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field ALL\\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field EMAIL\\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field EMAIL\\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field \\n' = CompletedProcess(args=['$PYTHON', '-...returncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field \\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field  \\n' = CompletedProcess(args=['$PYTHON', '-...eturncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field  \\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field  name\\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field  name\\n').stderr": 1,
+    "+  where 'usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field email \\n' = CompletedProcess(args=['$PYTHON', '-...code=2, stdout='', stderr='usage: __main__.py [-h] term\\n__main__.py: error: unrecognized arguments: --field email \\n').stderr": 1
+  },
+  "red_log_result": [
+    "79 failed, 5 passed in 1.59s",
+    "Exit code: 1"
+  ],
+  "red_log_has_local_root_paths": false,
+  "interpretation": "I inspected the complete diff by file and categorized every retained red-run error and failure summary. The domain errors reject the new keyword; the CLI failures reject new options or lack invalid-choice/domain messages. I found no unrelated error category."
+}
