@@ -1,6 +1,7 @@
 {
-  "coder": null,
+  "coder": "/root/ada09_coder",
   "reviewer": null,
   "rereviewer": null,
-  "shared_context": false
+  "shared_context": false,
+  "coder_context_mode": "fresh; no inherited history"
 }

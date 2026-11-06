@@ -1,0 +1,27 @@
+[
+  {
+    "label": "candidate-gate",
+    "started_at_utc": "2026-11-06T00:54:30.811409+00:00",
+    "finished_at_utc": "2026-11-06T00:54:34.069912+00:00",
+    "cwd": ".",
+    "argv": [
+      "bash",
+      "scripts/verify_repo.sh"
+    ],
+    "exit_code": 0,
+    "log": "results/evidence/ada09-candidate-gate.log"
+  },
+  {
+    "label": "candidate-environment",
+    "started_at_utc": "2026-11-06T00:54:34.070133+00:00",
+    "finished_at_utc": "2026-11-06T00:54:34.124603+00:00",
+    "cwd": ".",
+    "argv": [
+      "$PYTHON",
+      "-c",
+      "import platform,importlib.metadata as m; print(\"Python\",platform.python_version()); [print(p,m.version(p)) for p in [\"pytest\",\"ruff\",\"PyYAML\"]]"
+    ],
+    "exit_code": 0,
+    "log": "results/evidence/ada09-candidate-environment.log"
+  }
+]
