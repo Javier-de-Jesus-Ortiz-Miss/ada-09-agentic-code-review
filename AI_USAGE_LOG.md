@@ -23,3 +23,5 @@ Yo acepté RF-01 porque el diff y la lista de commits podían interpretarse como
 ## 6. Corrección y re-review
 
 Yo conservé la exportación anterior, documenté su límite y generé el snapshot completo del candidato. Yo repetí el gate y mantuve 144 casos satisfactorios. Yo comprobé la corrección en otro contexto independiente y obtuve RF-01 RESOLVED sin nuevos MUST FIX. Yo mantuve la decisión final de readiness separada de las recomendaciones del agente.
+
+Yo confirmé READY FOR HUMAN MERGE después del re-review y la CI. Yo mantuve el merge como una operación humana separada.
