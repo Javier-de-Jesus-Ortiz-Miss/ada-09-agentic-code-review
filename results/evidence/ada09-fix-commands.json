@@ -1,0 +1,46 @@
+{
+  "description": "I retain actual execution metadata for the accepted RF-01 evidence correction.",
+  "commands": [
+    {
+      "argv": [
+        "./scripts/verify_repo.sh"
+      ],
+      "environment": {
+        "PYTHON": "$PYTHON"
+      },
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:03:55.535489+00:00",
+      "finished_at_utc": "2026-11-06T01:03:58.769892+00:00",
+      "exit_code": 0,
+      "log": "results/evidence/ada09-fix-gate.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:05:11.993793+00:00",
+      "finished_at_utc": "2026-11-06T01:05:12.018860+00:00",
+      "exit_code": 2,
+      "log": "results/evidence/ada09-fix-whitespace.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        ".",
+        ":(exclude)results/pr.diff",
+        ":(exclude)results/evidence/ada09-initial-implementation.diff"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:05:12.019283+00:00",
+      "finished_at_utc": "2026-11-06T01:05:12.027614+00:00",
+      "exit_code": 0,
+      "log": "results/evidence/ada09-fix-editable-whitespace.log"
+    }
+  ]
+}

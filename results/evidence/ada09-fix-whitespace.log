@@ -1,0 +1,14 @@
+Command argv: ["git", "diff", "--check"]
+results/pr.diff:1755: trailing whitespace.
+++ 
+results/pr.diff:1781: trailing whitespace.
+++ 
+results/pr.diff:3438: trailing whitespace.
+++ 
+results/pr.diff:3451: trailing whitespace.
+++ 
+results/pr.diff:3452: trailing whitespace.
+++ 
+results/pr.diff:3464: trailing whitespace.
+++ 
+Exit code: 2

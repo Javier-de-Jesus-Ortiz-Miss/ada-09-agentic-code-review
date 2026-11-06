@@ -1,0 +1,40 @@
+{
+  "description": "I preserve exact diagnostic output and check editable staged documentation separately from generated patches and their raw whitespace log.",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "--",
+        ".",
+        ":(exclude)results/pr.diff",
+        ":(exclude)results/evidence/ada09-initial-implementation.diff"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:06:27.571954+00:00",
+      "finished_at_utc": "2026-11-06T01:06:27.588963+00:00",
+      "exit_code": 2,
+      "output": "results/evidence/ada09-fix-whitespace.log:3: trailing whitespace.\n+++ \nresults/evidence/ada09-fix-whitespace.log:5: trailing whitespace.\n+++ \nresults/evidence/ada09-fix-whitespace.log:7: trailing whitespace.\n+++ \nresults/evidence/ada09-fix-whitespace.log:9: trailing whitespace.\n+++ \nresults/evidence/ada09-fix-whitespace.log:11: trailing whitespace.\n+++ \nresults/evidence/ada09-fix-whitespace.log:13: trailing whitespace.\n+++ \n"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check",
+        "--",
+        ".",
+        ":(exclude)results/pr.diff",
+        ":(exclude)results/evidence/ada09-initial-implementation.diff",
+        ":(exclude)results/evidence/ada09-fix-whitespace.log"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:06:27.588984+00:00",
+      "finished_at_utc": "2026-11-06T01:06:27.597164+00:00",
+      "exit_code": 0,
+      "output": ""
+    }
+  ]
+}
