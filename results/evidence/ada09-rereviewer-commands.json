@@ -1,0 +1,710 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "ls-files",
+        "-z"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.591087+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.600828+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "161535e51fbbe6214ff448511dea8abd4a3da261cefd8437e409044019861be8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.620749+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.631865+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "a6f623cbd8fadd4cf0e477bb3d442c23f40c031c4e2a10852df405be2000f9f8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.632362+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.645319+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "66f4cb8c75150494623183a04aead7291206ebf37d60b640a4ae620107ac9dab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "b32491e514241cc8110c34cdd9617948b5c347c7"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.646337+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.654911+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "b129f21e6f892abb0138b99c4f42f4dd199ce9659ea17559141254e42d3484c1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--oneline",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61..57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.656712+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.669463+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "7c94827d5ba4447ebbe770cd732e531ad48866a14c781f93fbd1dd408eadaa3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "--oneline",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61..b32491e514241cc8110c34cdd9617948b5c347c7"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.669630+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.677572+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "50ebda3b9be3bfb82973d45797233df717735cffd377605da29d9c62ffb740b4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:results/pr.diff"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.677623+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.685135+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "66f4cb8c75150494623183a04aead7291206ebf37d60b640a4ae620107ac9dab",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:results/commits.txt"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.685344+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.693051+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "7c94827d5ba4447ebbe770cd732e531ad48866a14c781f93fbd1dd408eadaa3e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--binary",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61...be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.694621+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.709089+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "6cb54a28d533455acb921195d8815f2ff64e9d988c7eefcc189651811027e015",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--binary",
+        "b32491e514241cc8110c34cdd9617948b5c347c7...be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.713360+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.723032+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "26e7a10b42e52fd770d5690204218637bf0dedfbaad14bcf7834dea22eaeb5be",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61..be6825e495ec02f84d6534056c5084e8e77996e2",
+        "--format=%h %s"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.725289+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.732537+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "bfdb0c7313e8a0300134d1b219ef29553c91723be45d61fb60bc23ce06bc2360",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "b32491e514241cc8110c34cdd9617948b5c347c7",
+        "be6825e495ec02f84d6534056c5084e8e77996e2",
+        "--",
+        ".",
+        ":(exclude)results"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.732848+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.739541+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/__init__.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.739604+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.752740+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "84be214bf85e4e34db6cf2efdc75da70279482e144e50883eed25a9ae5bac72b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/__main__.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.753165+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.766299+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "9fdd5d72a8d31391707b62feabcbefa8ef24bdb05d1d96a7580697a955834546",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/cli.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.766569+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.779059+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "05cc640cb00374cea73978f08e8b38541ed6e599d5be060ab80d5fd950ab0c08",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/data.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.779237+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.789234+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "af4f6b0d42bba68920ead4f9faa67261c83046250400dbd778097ba905267456",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/models.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.789452+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.800296+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "6e2aefb950b32020982c10b0e42064322fea6707c95033b74d69dc3402a2f292",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:src/customer_search/search.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.800465+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.809600+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "5bab58f10fa7b9756b965693bf4c135728b3e795a8c63e01f2c7da8f1a35b404",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_cli.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.809795+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.819626+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "6e65e3ca264f36134ecfb820f859c3b6ab7532319fe80f04d72bc81dfcb01b1b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_cli_fields.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.819845+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.828928+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "40a80d30d4001639c67874b58e713701c29d64854c174354b3a76bed892089f7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_model_validation.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.829089+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.835904+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "b01a476a48975f5be630c7e0f6ee9422f01814f85d424130595e97f81678edff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_repo_contract.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.836048+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.845328+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "23b27805acc9989937ba150e0b7caa32af4075c45ed1fa04e491ff34421cb909",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_review_evidence.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.845518+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.852868+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "15721bb6eb8350722b6ca3023436a64a09e14666338845892a297f8cd79495bb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_search.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.853029+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.860093+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "52dc946bd07035a54bf44301648a1794bca6eb6c81ac737a3538eafad5be972e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_search_fields.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.860262+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.867017+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "22996502c13fd9d91c2e4b934b6fa492e8c22b84e4e662928472f213f0c89dc7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:tests/test_security.py"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.867164+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.874576+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "b8535ee1c293cf095e7b3fafc6a80c8605ed1b5f3a21ac5c0222863092148d62",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:AGENTS.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.874806+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.882668+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "30013c65adb325e8d1729e223c4150573e3d1d5f51039cb522df962f85b1ea92",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:CHANGE_REQUEST.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.882814+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.889360+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "36e89afc1a6f17fc8bd7e1301b233d7caba2ff297e71b11ea726a9a9047a8622",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:REQUIREMENTS.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.889497+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.896459+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "0e99a6ae0da097364db44dee611600fc634466bf8093dee23d4d85e16b1c7180",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:SPEC.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.896629+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.904234+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "886e7130c4620047937ecab61b232e6a227c16f456ddc96ba8127e1d62b1227c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:ARCHITECTURE.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.904472+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.914259+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "7978253796a2cd55ba86482098ec01a4817ffe0ec05df1871dbb0893473838e6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:TASKS.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.914430+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.922160+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "5abd179503e21a509517d61ea3182984bfed3d363f0079c66ee472a27e52e492",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:TASK_UNDER_TEST.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.922321+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.931175+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "d095ca263f18b61388db85f6177e80f6a1b25696b16ab46e3242240c1cb9fe96",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:docs/REPO_MAP.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.931354+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.939838+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "d5e045ff97107fceeb178365af6d4dbf15f6f3f5ef656f101486633df4b51031",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:docs/REVIEW_RULES.md"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.940022+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.947685+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "a1b8a9a68ac75abfe9d3b46f5a7b90a36cedac05ab05b6245cea12236223eaba",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:docs/protected-paths.json"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.947833+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.954829+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "85e1edbb1a245f6df25eaef482e705ab140717cf407d610c31754bb8b46ab29b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:pyproject.toml"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.954981+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.962130+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "7eb9cfa6df2a7c73886485703eb370454917c0d0ed6395d2128172d34f769100",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "show",
+        "b32491e514241cc8110c34cdd9617948b5c347c7:requirements-dev.txt"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.962291+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.970975+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "70f8d4b77689e8b6dd91b2abaf26cbb7f09eda92563b4a9dfaefcebd928b810b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "b32491e514241cc8110c34cdd9617948b5c347c7",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.971146+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.981419+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8964617e43f3a95e2c927d6f6ed9abecc4d280d6d47172a58cc944079eb36163",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "be6825e495ec02f84d6534056c5084e8e77996e2^",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.981465+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.988419+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "653980e54f074d864eb6aaf157e71a419f2680e1becccc555ec2dd493884158f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only",
+        "-r",
+        "233dc6b89d53e18ef63cbdcf08d4a7907b566e02"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.988481+00:00",
+      "finished_at_utc": "2026-11-06T01:24:34.997036+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "b19b95330a7974b2732cc91b4d57c3df73d70aa5abb753de39f45d417dfc56f7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only",
+        "-r",
+        "e4e2698e40d3ae9ec22af0ffa465c7ee8ec015c4"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:34.997144+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.006890+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "bb04b11398f123d2f6d9d15ed932ad34cddea48bdceaae61a96a5e703a2151b1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.007025+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.016220+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "merge-base",
+        "--is-ancestor",
+        "b32491e514241cc8110c34cdd9617948b5c347c7",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.016263+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.027796+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "be6825e495ec02f84d6534056c5084e8e77996e2^",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.027934+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.037901+00:00",
+      "exit_code": 2,
+      "stdout_sha256": "3006e8c8e580c4a01eecd9ff94edcd3f9bf139a31d4de640a5ae56e75c20f2bc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "log": "results/evidence/ada09-rereviewer-whitespace.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "be6825e495ec02f84d6534056c5084e8e77996e2^",
+        "be6825e495ec02f84d6534056c5084e8e77996e2",
+        "--",
+        ".",
+        ":(exclude)results/pr.diff",
+        ":(exclude)results/evidence/ada09-initial-implementation.diff",
+        ":(exclude)results/evidence/ada09-fix-whitespace.log"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.038318+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.046249+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "$PYTHON",
+        "--version"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.046289+00:00",
+      "finished_at_utc": "2026-11-06T01:24:35.056313+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "322f765b04793d55160c8788550761630087e4847a77ed7a1090d79791f73c3b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "./scripts/verify_repo.sh"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:35.056428+00:00",
+      "finished_at_utc": "2026-11-06T01:24:41.219297+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8d1446b0769f7b50edf1be5151b55ea714c14ba6f61c0ad5308c3df12f041ab6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environment": {
+        "PYTHON": "$PYTHON"
+      },
+      "log": "results/evidence/ada09-rereviewer-gate.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "b32491e514241cc8110c34cdd9617948b5c347c7"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:41.225882+00:00",
+      "finished_at_utc": "2026-11-06T01:24:41.249563+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "5412bc650eeec8d802c89fee0895bfa8dbb86a90e19c6975940ba7bc8092533e",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:41.249621+00:00",
+      "finished_at_utc": "2026-11-06T01:24:41.257523+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "22da861d425bcd7fa3bb61c2fb0e93654d974431aafec7f57ff48ba995c5d7b3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--name-only",
+        "b32491e514241cc8110c34cdd9617948b5c347c7",
+        "be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "working_directory": "<repo>",
+      "started_at_utc": "2026-11-06T01:24:41.257573+00:00",
+      "finished_at_utc": "2026-11-06T01:24:41.265005+00:00",
+      "exit_code": 0,
+      "stdout_sha256": "8964617e43f3a95e2c927d6f6ed9abecc4d280d6d47172a58cc944079eb36163",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

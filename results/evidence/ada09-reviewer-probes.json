@@ -1,0 +1,38 @@
+{
+  "reviewer_context": "/root/ada09_reviewer",
+  "candidate_commit": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "python_version": "3.13.15",
+  "search_signature": "(term: str, customers: collections.abc.Iterable[customer_search.models.Customer], *, field: str = 'all') -> list[customer_search.models.Customer]",
+  "source": "<repo>/src/customer_search/search.py",
+  "checks": [
+    {
+      "probe": "Real public API identity, keyword-only signature, CLI delegation, immutable record and empty runtime dependencies",
+      "result": "PASS"
+    },
+    {
+      "probe": "Every used production/CLI-test callable exists in actual standard library; pytest is development-only",
+      "result": "PASS"
+    },
+    {
+      "probe": "Single-use iterable, stable order, Unicode casefold and both-field nonduplication for each selector",
+      "result": "PASS"
+    },
+    {
+      "probe": "Invalid selector/query rejected before iterable consumption, including unhashable inputs",
+      "result": "PASS"
+    },
+    {
+      "probe": "Excluded field is not evaluated and interior whitespace remains exact",
+      "result": "PASS"
+    },
+    {
+      "probe": "Six independent real CLI stream/exit/option placement probes",
+      "result": "PASS"
+    },
+    {
+      "probe": "Ten differential baseline compatibility queries with default and explicit all, using real baseline Git source",
+      "result": "PASS"
+    }
+  ],
+  "exit_code": 0
+}

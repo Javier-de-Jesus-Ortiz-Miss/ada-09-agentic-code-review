@@ -1,0 +1,39 @@
+{
+  "description": "I verify byte identity across the evidence-only correction and exact declared Git boundaries for each patch/history artifact.",
+  "before": "results/evidence/ada09-fix-integrity-before.json",
+  "after": "results/evidence/ada09-fix-integrity-after.json",
+  "source_tests_contracts_dependencies_unchanged": true,
+  "compared_file_count": 20,
+  "changed_files": [],
+  "artifact_checks": [
+    {
+      "artifact": "results/evidence/ada09-initial-implementation.diff",
+      "boundary": "historical",
+      "matches_exact_git_output": true,
+      "sha256": "66f4cb8c75150494623183a04aead7291206ebf37d60b640a4ae620107ac9dab"
+    },
+    {
+      "artifact": "results/pr.diff",
+      "boundary": "candidate",
+      "matches_exact_git_output": true,
+      "sha256": "b129f21e6f892abb0138b99c4f42f4dd199ce9659ea17559141254e42d3484c1"
+    },
+    {
+      "artifact": "results/evidence/ada09-initial-commits.txt",
+      "boundary": "historical",
+      "matches_exact_git_output": true,
+      "sha256": "7c94827d5ba4447ebbe770cd732e531ad48866a14c781f93fbd1dd408eadaa3e"
+    },
+    {
+      "artifact": "results/commits.txt",
+      "boundary": "candidate",
+      "matches_exact_git_output": true,
+      "sha256": "50ebda3b9be3bfb82973d45797233df717735cffd377605da29d9c62ffb740b4"
+    }
+  ],
+  "complete_candidate_patch_exclusions": [],
+  "unfiltered_whitespace_exit_code": 2,
+  "editable_documentation_whitespace_exit_code": 0,
+  "generated_patch_whitespace_limitation": "I preserve six warnings in the verbatim nested candidate patch to retain exact immutable Git output; I apply no generation or fingerprint exclusions.",
+  "resolution_status": "I leave RF-01 resolution status to independent re-review."
+}

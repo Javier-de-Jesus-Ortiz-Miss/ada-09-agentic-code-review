@@ -1,0 +1,19 @@
+{
+  "candidate_commit": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "files": {
+    "src/customer_search/__init__.py": "84be214bf85e4e34db6cf2efdc75da70279482e144e50883eed25a9ae5bac72b",
+    "src/customer_search/__main__.py": "9fdd5d72a8d31391707b62feabcbefa8ef24bdb05d1d96a7580697a955834546",
+    "src/customer_search/cli.py": "05cc640cb00374cea73978f08e8b38541ed6e599d5be060ab80d5fd950ab0c08",
+    "src/customer_search/data.py": "af4f6b0d42bba68920ead4f9faa67261c83046250400dbd778097ba905267456",
+    "src/customer_search/models.py": "6e2aefb950b32020982c10b0e42064322fea6707c95033b74d69dc3402a2f292",
+    "src/customer_search/search.py": "5bab58f10fa7b9756b965693bf4c135728b3e795a8c63e01f2c7da8f1a35b404",
+    "tests/test_cli.py": "6e65e3ca264f36134ecfb820f859c3b6ab7532319fe80f04d72bc81dfcb01b1b",
+    "tests/test_cli_fields.py": "40a80d30d4001639c67874b58e713701c29d64854c174354b3a76bed892089f7",
+    "tests/test_model_validation.py": "b01a476a48975f5be630c7e0f6ee9422f01814f85d424130595e97f81678edff",
+    "tests/test_repo_contract.py": "23b27805acc9989937ba150e0b7caa32af4075c45ed1fa04e491ff34421cb909",
+    "tests/test_review_evidence.py": "15721bb6eb8350722b6ca3023436a64a09e14666338845892a297f8cd79495bb",
+    "tests/test_search.py": "52dc946bd07035a54bf44301648a1794bca6eb6c81ac737a3538eafad5be972e",
+    "tests/test_search_fields.py": "22996502c13fd9d91c2e4b934b6fa492e8c22b84e4e662928472f213f0c89dc7",
+    "tests/test_security.py": "b8535ee1c293cf095e7b3fafc6a80c8605ed1b5f3a21ac5c0222863092148d62"
+  }
+}

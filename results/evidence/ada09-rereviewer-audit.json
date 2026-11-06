@@ -1,0 +1,134 @@
+{
+  "context": "/root/ada09_rereviewer",
+  "base": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+  "initial_candidate": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "fixed_review_boundary": "be6825e495ec02f84d6534056c5084e8e77996e2",
+  "artifact_checks": [
+    {
+      "artifact": "results/evidence/ada09-initial-implementation.diff",
+      "kind": "historical",
+      "matches_declared_git_command": true,
+      "sha256": "66f4cb8c75150494623183a04aead7291206ebf37d60b640a4ae620107ac9dab",
+      "line_count": 1924,
+      "diff_sections": 19
+    },
+    {
+      "artifact": "results/pr.diff",
+      "kind": "candidate",
+      "matches_declared_git_command": true,
+      "sha256": "b129f21e6f892abb0138b99c4f42f4dd199ce9659ea17559141254e42d3484c1",
+      "line_count": 3993,
+      "diff_sections": 26
+    },
+    {
+      "artifact": "results/evidence/ada09-initial-commits.txt",
+      "kind": "historical",
+      "matches_declared_git_command": true,
+      "sha256": "7c94827d5ba4447ebbe770cd732e531ad48866a14c781f93fbd1dd408eadaa3e",
+      "line_count": 3,
+      "diff_sections": null
+    },
+    {
+      "artifact": "results/commits.txt",
+      "kind": "candidate",
+      "matches_declared_git_command": true,
+      "sha256": "50ebda3b9be3bfb82973d45797233df717735cffd377605da29d9c62ffb740b4",
+      "line_count": 4,
+      "diff_sections": null
+    },
+    {
+      "historical_artifact": "results/evidence/ada09-initial-implementation.diff",
+      "identical_to_original_candidate_artifact": "results/pr.diff",
+      "result": true
+    },
+    {
+      "historical_artifact": "results/evidence/ada09-initial-commits.txt",
+      "identical_to_original_candidate_artifact": "results/commits.txt",
+      "result": true
+    },
+    {
+      "artifact": "results/final-pr.diff",
+      "matches_declared_git_command": true,
+      "sha256": "6cb54a28d533455acb921195d8815f2ff64e9d988c7eefcc189651811027e015",
+      "line_count": 8937,
+      "diff_sections": 51
+    },
+    {
+      "artifact": "results/fix.diff",
+      "matches_declared_git_command": true,
+      "sha256": "26e7a10b42e52fd770d5690204218637bf0dedfbaad14bcf7834dea22eaeb5be",
+      "line_count": 5029,
+      "diff_sections": 30
+    },
+    {
+      "artifact": "results/final-commits.txt",
+      "matches_declared_git_command": true,
+      "sha256": "bfdb0c7313e8a0300134d1b219ef29553c91723be45d61fb60bc23ce06bc2360"
+    }
+  ],
+  "source_test_files_matched_to_candidate": 14,
+  "additional_contract_dependency_files_matched": 12,
+  "all_non_results_unchanged_from_candidate": true,
+  "candidate_to_fixed_paths": [
+    "results/coder-report.md",
+    "results/commits.txt",
+    "results/evidence/ada09-agent-contexts.json",
+    "results/evidence/ada09-fix-commands.json",
+    "results/evidence/ada09-fix-editable-whitespace.exitcode",
+    "results/evidence/ada09-fix-editable-whitespace.log",
+    "results/evidence/ada09-fix-gate.exitcode",
+    "results/evidence/ada09-fix-gate.log",
+    "results/evidence/ada09-fix-integrity-after.json",
+    "results/evidence/ada09-fix-integrity-before.json",
+    "results/evidence/ada09-fix-integrity-comparison.json",
+    "results/evidence/ada09-fix-staged-whitespace.json",
+    "results/evidence/ada09-fix-whitespace.exitcode",
+    "results/evidence/ada09-fix-whitespace.log",
+    "results/evidence/ada09-initial-commits.txt",
+    "results/evidence/ada09-initial-implementation.diff",
+    "results/evidence/ada09-review-integrity.json",
+    "results/evidence/ada09-reviewer-commands.json",
+    "results/evidence/ada09-reviewer-diff-audit.json",
+    "results/evidence/ada09-reviewer-evidence-audit.json",
+    "results/evidence/ada09-reviewer-gate.log",
+    "results/evidence/ada09-reviewer-integrity-after.json",
+    "results/evidence/ada09-reviewer-integrity-before.json",
+    "results/evidence/ada09-reviewer-probes.json",
+    "results/human-review-decisions.md",
+    "results/pr-diff-scope.json",
+    "results/pr.diff",
+    "results/review-contract.md",
+    "results/review-report.md",
+    "results/verification-report.md"
+  ],
+  "correction_commit_paths": [
+    "results/coder-report.md",
+    "results/commits.txt",
+    "results/evidence/ada09-fix-commands.json",
+    "results/evidence/ada09-fix-editable-whitespace.exitcode",
+    "results/evidence/ada09-fix-editable-whitespace.log",
+    "results/evidence/ada09-fix-gate.exitcode",
+    "results/evidence/ada09-fix-gate.log",
+    "results/evidence/ada09-fix-integrity-after.json",
+    "results/evidence/ada09-fix-integrity-before.json",
+    "results/evidence/ada09-fix-integrity-comparison.json",
+    "results/evidence/ada09-fix-staged-whitespace.json",
+    "results/evidence/ada09-fix-whitespace.exitcode",
+    "results/evidence/ada09-fix-whitespace.log",
+    "results/evidence/ada09-initial-commits.txt",
+    "results/evidence/ada09-initial-implementation.diff",
+    "results/pr-diff-scope.json",
+    "results/pr.diff",
+    "results/verification-report.md"
+  ],
+  "tracked_files_unchanged_during_review": 170,
+  "whitespace_unfiltered_exit_code": 2,
+  "whitespace_editable_exit_code": 0,
+  "local_gate_exit_code": 0,
+  "python_version": "Python 3.13.15",
+  "base_is_ancestor_of_fixed": true,
+  "candidate_is_ancestor_of_fixed": true,
+  "actual_candidate_changed_path_count": 26,
+  "actual_final_changed_path_count": 51,
+  "actual_candidate_to_fixed_changed_path_count": 30
+}

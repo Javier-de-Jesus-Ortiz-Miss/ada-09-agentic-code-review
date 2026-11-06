@@ -1,0 +1,13 @@
+{
+  "coder": "/root/ada09_coder",
+  "reviewer": "/root/ada09_reviewer",
+  "rereviewer": "/root/ada09_rereviewer",
+  "shared_context": false,
+  "coder_context_mode": "fresh; no inherited history",
+  "reviewer_context_mode": "fresh; no inherited coder state",
+  "reviewed_candidate": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "source_unchanged_during_review": true,
+  "rereviewer_context_mode": "independent; no coder context",
+  "rereviewed_commit": "be6825e495ec02f84d6534056c5084e8e77996e2",
+  "source_unchanged_during_rereview": true
+}

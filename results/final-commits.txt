@@ -1,0 +1,7 @@
+be6825e Clarify frozen review evidence boundaries
+e4e2698 Record review decision and evidence correction scope
+233dc6b Document independent review contract and findings
+b32491e Record candidate verification and review evidence
+57f464c Record immutable change metadata in coder report
+a551970 Add optional customer search field selector
+1686d0d Record review baseline and deterministic run context

@@ -1,0 +1,17 @@
+[
+  {
+    "label": "reviewer-gate",
+    "started_at_utc": "2026-11-06T00:57:50.359670+00:00",
+    "finished_at_utc": "2026-11-06T00:57:53.501527+00:00",
+    "cwd": "<repo>",
+    "argv": [
+      "bash",
+      "scripts/verify_repo.sh"
+    ],
+    "environment": {
+      "PYTHON": "$PYTHON"
+    },
+    "exit_code": 0,
+    "log": "results/evidence/ada09-reviewer-gate.log"
+  }
+]

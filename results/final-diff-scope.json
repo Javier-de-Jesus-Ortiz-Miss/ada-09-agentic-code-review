@@ -1,0 +1,39 @@
+{
+  "change_id": "CR-ADA09-01",
+  "frozen_final_review_commit": "be6825e495ec02f84d6534056c5084e8e77996e2",
+  "artifacts": [
+    {
+      "path": "results/final-pr.diff",
+      "base_commit": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+      "head_commit": "be6825e495ec02f84d6534056c5084e8e77996e2",
+      "argv": [
+        "git",
+        "diff",
+        "--binary",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61...be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "sha256": "6cb54a28d533455acb921195d8815f2ff64e9d988c7eefcc189651811027e015",
+      "excluded_paths": []
+    },
+    {
+      "path": "results/fix.diff",
+      "base_commit": "b32491e514241cc8110c34cdd9617948b5c347c7",
+      "head_commit": "be6825e495ec02f84d6534056c5084e8e77996e2",
+      "argv": [
+        "git",
+        "diff",
+        "--binary",
+        "b32491e514241cc8110c34cdd9617948b5c347c7...be6825e495ec02f84d6534056c5084e8e77996e2"
+      ],
+      "sha256": "26e7a10b42e52fd770d5690204218637bf0dedfbaad14bcf7834dea22eaeb5be",
+      "excluded_paths": []
+    }
+  ],
+  "commits_argv": [
+    "git",
+    "log",
+    "057bd7bd0791fc2387a0a79b07c8e44480419c61..be6825e495ec02f84d6534056c5084e8e77996e2",
+    "--format=%h %s"
+  ],
+  "packaging_boundary": "I distinguish these immutable reviewed snapshots from subsequent documentation-only packaging."
+}

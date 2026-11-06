@@ -1,0 +1,5 @@
+Command: $PYTHON -m pytest -q -p no:cacheprovider tests/test_search_fields.py tests/test_cli_fields.py
+........................................................................ [ 85%]
+............                                                             [100%]
+84 passed in 1.49s
+Exit code: 0

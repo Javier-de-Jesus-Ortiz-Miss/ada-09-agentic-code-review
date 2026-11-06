@@ -1,0 +1,2 @@
+Command argv: ["git", "diff", "--check", "--", ".", ":(exclude)results/pr.diff", ":(exclude)results/evidence/ada09-initial-implementation.diff"]
+Exit code: 0

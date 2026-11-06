@@ -1,0 +1,14 @@
+Command: git diff --check
+Exit code: 0
+Command: git diff --name-only -- src tests README.md
+README.md
+src/customer_search/cli.py
+src/customer_search/search.py
+Exit code: 0
+Command: $PYTHON -c API/dependency inventory
+search_customers: (term: str, customers: collections.abc.Iterable[customer_search.models.Customer], *, field: str = 'all') -> list[customer_search.models.Customer]
+search source: <repo>/src/customer_search/search.py
+CLI main: (argv: collections.abc.Sequence[str] | None = None) -> int
+CLI source: <repo>/src/customer_search/cli.py
+runtime dependencies: []
+Exit code: 0

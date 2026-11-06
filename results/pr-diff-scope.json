@@ -1,0 +1,95 @@
+{
+  "change_id": "CR-ADA09-01",
+  "description": "I retain the complete actual frozen base-to-reviewed-candidate patch and history, with earlier artifacts preserved as historical snapshots.",
+  "base_commit": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+  "implementation_commit": "a551970a7f80b0aa5e9a0302a6b0718d66dd88ee",
+  "historical_head_commit": "57f464c06ec01d2e1af4b3dcf3895d5e182f4516",
+  "reviewed_candidate_commit": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "complete_candidate_patch_exclusions": [],
+  "exclusions_statement": "I exclude no paths or generated files from the complete candidate patch.",
+  "historical_generation_provenance": "I reconstruct the historical generation argv below and verify byte equality with each original artifact before preserving it; I do not assert an unrecorded original process invocation.",
+  "generation_working_directory": "<repo>",
+  "artifacts": [
+    {
+      "historical_artifact": "results/evidence/ada09-initial-implementation.diff",
+      "historical_sha256": "66f4cb8c75150494623183a04aead7291206ebf37d60b640a4ae620107ac9dab",
+      "historical_reconstruction_argv": [
+        "git",
+        "diff",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      ],
+      "candidate_artifact": "results/pr.diff",
+      "candidate_sha256": "b129f21e6f892abb0138b99c4f42f4dd199ce9659ea17559141254e42d3484c1",
+      "candidate_generation_argv": [
+        "git",
+        "diff",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "b32491e514241cc8110c34cdd9617948b5c347c7"
+      ],
+      "historical_boundary": {
+        "base": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "head": "57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      },
+      "candidate_boundary": {
+        "base": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "head": "b32491e514241cc8110c34cdd9617948b5c347c7"
+      }
+    },
+    {
+      "historical_artifact": "results/evidence/ada09-initial-commits.txt",
+      "historical_sha256": "7c94827d5ba4447ebbe770cd732e531ad48866a14c781f93fbd1dd408eadaa3e",
+      "historical_reconstruction_argv": [
+        "git",
+        "log",
+        "--oneline",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61..57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      ],
+      "candidate_artifact": "results/commits.txt",
+      "candidate_sha256": "50ebda3b9be3bfb82973d45797233df717735cffd377605da29d9c62ffb740b4",
+      "candidate_generation_argv": [
+        "git",
+        "log",
+        "--oneline",
+        "057bd7bd0791fc2387a0a79b07c8e44480419c61..b32491e514241cc8110c34cdd9617948b5c347c7"
+      ],
+      "historical_boundary": {
+        "base": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "head": "57f464c06ec01d2e1af4b3dcf3895d5e182f4516"
+      },
+      "candidate_boundary": {
+        "base": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+        "head": "b32491e514241cc8110c34cdd9617948b5c347c7"
+      }
+    }
+  ],
+  "subsequent_evidence_only_commits_before_correction": [
+    {
+      "commit": "233dc6b89d53e18ef63cbdcf08d4a7907b566e02",
+      "subject": "Document independent review contract and findings",
+      "paths": [
+        "results/evidence/ada09-agent-contexts.json",
+        "results/evidence/ada09-review-integrity.json",
+        "results/evidence/ada09-reviewer-commands.json",
+        "results/evidence/ada09-reviewer-diff-audit.json",
+        "results/evidence/ada09-reviewer-evidence-audit.json",
+        "results/evidence/ada09-reviewer-gate.log",
+        "results/evidence/ada09-reviewer-integrity-after.json",
+        "results/evidence/ada09-reviewer-integrity-before.json",
+        "results/evidence/ada09-reviewer-probes.json",
+        "results/review-contract.md",
+        "results/review-report.md"
+      ],
+      "scope": "I retain this evidence-only commit separately from the frozen reviewed candidate."
+    },
+    {
+      "commit": "e4e2698e40d3ae9ec22af0ffa465c7ee8ec015c4",
+      "subject": "Record review decision and evidence correction scope",
+      "paths": [
+        "results/human-review-decisions.md"
+      ],
+      "scope": "I retain this evidence-only commit separately from the frozen reviewed candidate."
+    }
+  ],
+  "correction_scope": "I keep this evidence correction commit and any subsequent evidence-only commits outside the frozen base-to-reviewed-candidate patch and commit list. I identify the correction commit by ordinary Git history after committing; I leave independent resolution status to re-review."
+}

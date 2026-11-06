@@ -1,0 +1,1386 @@
+Command: $PYTHON -m pytest -q -p no:cacheprovider tests/test_search_fields.py tests/test_cli_fields.py
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.FFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 85%]
+FFFFFFFF....                                                             [100%]
+=================================== FAILURES ===================================
+_________ test_default_and_explicit_all_preserve_two_argument_results __________
+
+    def test_default_and_explicit_all_preserve_two_argument_results():
+        expected = [CUSTOMERS[0], CUSTOMERS[1], CUSTOMERS[3]]
+        default = search_customers("ana", CUSTOMERS)
+>       explicit = search_customers("ana", CUSTOMERS, field="all")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:19: TypeError
+_ test_selected_field_matches_partial_trimmed_query_in_single_pass[all-expected_indices0] _
+
+field = 'all', expected_indices = [0, 1, 3]
+
+    @pytest.mark.parametrize(
+        ("field", "expected_indices"),
+        [("all", [0, 1, 3]), ("name", [1, 3]), ("email", [0, 1])],
+    )
+    def test_selected_field_matches_partial_trimmed_query_in_single_pass(field, expected_indices):
+        customers = (customer for customer in CUSTOMERS)
+>       assert search_customers("  ANA  ", customers, field=field) == [
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            CUSTOMERS[index] for index in expected_indices
+        ]
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:33: TypeError
+_ test_selected_field_matches_partial_trimmed_query_in_single_pass[name-expected_indices1] _
+
+field = 'name', expected_indices = [1, 3]
+
+    @pytest.mark.parametrize(
+        ("field", "expected_indices"),
+        [("all", [0, 1, 3]), ("name", [1, 3]), ("email", [0, 1])],
+    )
+    def test_selected_field_matches_partial_trimmed_query_in_single_pass(field, expected_indices):
+        customers = (customer for customer in CUSTOMERS)
+>       assert search_customers("  ANA  ", customers, field=field) == [
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            CUSTOMERS[index] for index in expected_indices
+        ]
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:33: TypeError
+_ test_selected_field_matches_partial_trimmed_query_in_single_pass[email-expected_indices2] _
+
+field = 'email', expected_indices = [0, 1]
+
+    @pytest.mark.parametrize(
+        ("field", "expected_indices"),
+        [("all", [0, 1, 3]), ("name", [1, 3]), ("email", [0, 1])],
+    )
+    def test_selected_field_matches_partial_trimmed_query_in_single_pass(field, expected_indices):
+        customers = (customer for customer in CUSTOMERS)
+>       assert search_customers("  ANA  ", customers, field=field) == [
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            CUSTOMERS[index] for index in expected_indices
+        ]
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:33: TypeError
+______________ test_selected_field_retains_unicode_casefold[name] ______________
+
+field = 'name'
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    def test_selected_field_retains_unicode_casefold(field):
+        selected = Customer(
+            "selected",
+            "Straße" if field == "name" else "Other",
+            "straße@example.com" if field == "email" else "other@example.com",
+        )
+        excluded = Customer(
+            "excluded",
+            "Straße" if field == "email" else "Other",
+            "straße@example.com" if field == "name" else "other@example.com",
+        )
+>       assert search_customers("  STRASSE  ", [excluded, selected], field=field) == [selected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:51: TypeError
+_____________ test_selected_field_retains_unicode_casefold[email] ______________
+
+field = 'email'
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    def test_selected_field_retains_unicode_casefold(field):
+        selected = Customer(
+            "selected",
+            "Straße" if field == "name" else "Other",
+            "straße@example.com" if field == "email" else "other@example.com",
+        )
+        excluded = Customer(
+            "excluded",
+            "Straße" if field == "email" else "Other",
+            "straße@example.com" if field == "name" else "other@example.com",
+        )
+>       assert search_customers("  STRASSE  ", [excluded, selected], field=field) == [selected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:51: TypeError
+____________ test_selected_field_preserves_interior_spaces[ -name] _____________
+
+field = 'name', spaces = ' '
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    @pytest.mark.parametrize("spaces", [" ", "  "])
+    def test_selected_field_preserves_interior_spaces(field, spaces):
+        customers = [
+            Customer("single", "Ana López", "ana lopez@example.com"),
+            Customer("double", "Ana  López", "ana  lopez@example.com"),
+        ]
+        term = f"ANA{spaces}{'LÓPEZ' if field == 'name' else 'LOPEZ'}"
+        expected = customers[0] if spaces == " " else customers[1]
+>       assert search_customers(f"  {term}  ", customers, field=field) == [expected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:63: TypeError
+____________ test_selected_field_preserves_interior_spaces[ -email] ____________
+
+field = 'email', spaces = ' '
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    @pytest.mark.parametrize("spaces", [" ", "  "])
+    def test_selected_field_preserves_interior_spaces(field, spaces):
+        customers = [
+            Customer("single", "Ana López", "ana lopez@example.com"),
+            Customer("double", "Ana  López", "ana  lopez@example.com"),
+        ]
+        term = f"ANA{spaces}{'LÓPEZ' if field == 'name' else 'LOPEZ'}"
+        expected = customers[0] if spaces == " " else customers[1]
+>       assert search_customers(f"  {term}  ", customers, field=field) == [expected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:63: TypeError
+____________ test_selected_field_preserves_interior_spaces[  -name] ____________
+
+field = 'name', spaces = '  '
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    @pytest.mark.parametrize("spaces", [" ", "  "])
+    def test_selected_field_preserves_interior_spaces(field, spaces):
+        customers = [
+            Customer("single", "Ana López", "ana lopez@example.com"),
+            Customer("double", "Ana  López", "ana  lopez@example.com"),
+        ]
+        term = f"ANA{spaces}{'LÓPEZ' if field == 'name' else 'LOPEZ'}"
+        expected = customers[0] if spaces == " " else customers[1]
+>       assert search_customers(f"  {term}  ", customers, field=field) == [expected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:63: TypeError
+___________ test_selected_field_preserves_interior_spaces[  -email] ____________
+
+field = 'email', spaces = '  '
+
+    @pytest.mark.parametrize("field", ["name", "email"])
+    @pytest.mark.parametrize("spaces", [" ", "  "])
+    def test_selected_field_preserves_interior_spaces(field, spaces):
+        customers = [
+            Customer("single", "Ana López", "ana lopez@example.com"),
+            Customer("double", "Ana  López", "ana  lopez@example.com"),
+        ]
+        term = f"ANA{spaces}{'LÓPEZ' if field == 'name' else 'LOPEZ'}"
+        expected = customers[0] if spaces == " " else customers[1]
+>       assert search_customers(f"  {term}  ", customers, field=field) == [expected]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:63: TypeError
+___________ test_selected_field_returns_empty_list_for_no_match[all] ___________
+
+field = 'all'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_selected_field_returns_empty_list_for_no_match(field):
+>       assert search_customers("absent", CUSTOMERS, field=field) == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:68: TypeError
+__________ test_selected_field_returns_empty_list_for_no_match[name] ___________
+
+field = 'name'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_selected_field_returns_empty_list_for_no_match(field):
+>       assert search_customers("absent", CUSTOMERS, field=field) == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:68: TypeError
+__________ test_selected_field_returns_empty_list_for_no_match[email] __________
+
+field = 'email'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_selected_field_returns_empty_list_for_no_match(field):
+>       assert search_customers("absent", CUSTOMERS, field=field) == []
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:68: TypeError
+_______ test_invalid_selectors_raise_value_error_even_without_records[] ________
+
+field = ''
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_______ test_invalid_selectors_raise_value_error_even_without_records[ ] _______
+
+field = ' '
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[Name] ______
+
+field = 'Name'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+______ test_invalid_selectors_raise_value_error_even_without_records[ALL] ______
+
+field = 'ALL'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[EMAIL] _____
+
+field = 'EMAIL'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[ name] _____
+
+field = ' name'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+____ test_invalid_selectors_raise_value_error_even_without_records[email ] _____
+
+field = 'email '
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+______ test_invalid_selectors_raise_value_error_even_without_records[id] _______
+
+field = 'id'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[None] ______
+
+field = None
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_______ test_invalid_selectors_raise_value_error_even_without_records[1] _______
+
+field = 1
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[True] ______
+
+field = True
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+_____ test_invalid_selectors_raise_value_error_even_without_records[name] ______
+
+field = b'name'
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+____ test_invalid_selectors_raise_value_error_even_without_records[field12] ____
+
+field = []
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+____ test_invalid_selectors_raise_value_error_even_without_records[field13] ____
+
+field = {}
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+____ test_invalid_selectors_raise_value_error_even_without_records[field14] ____
+
+field = {'name'}
+
+    @pytest.mark.parametrize(
+        "field",
+        ["", " ", "Name", "ALL", "EMAIL", " name", "email ", "id", None, 1, True,
+         b"name", [], {}, {"name"}],
+    )
+    def test_invalid_selectors_raise_value_error_even_without_records(field):
+        with pytest.raises(ValueError):
+>           search_customers("ana", iter(()), field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:79: TypeError
+________ test_valid_selectors_retain_query_validation[-no vac\xedo-all] ________
+
+field = 'all', term = '', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_______ test_valid_selectors_retain_query_validation[-no vac\xedo-name] ________
+
+field = 'name', term = '', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_______ test_valid_selectors_retain_query_validation[-no vac\xedo-email] _______
+
+field = 'email', term = '', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_____ test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-all] ______
+
+field = 'all', term = ' \t\n', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_____ test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-name] _____
+
+field = 'name', term = ' \t\n', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-email] _____
+
+field = 'email', term = ' \t\n', message = 'no vacío'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[None-debe ser texto-all] _____
+
+field = 'all', term = None, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[None-debe ser texto-name] ____
+
+field = 'name', term = None, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+___ test_valid_selectors_retain_query_validation[None-debe ser texto-email] ____
+
+field = 'email', term = None, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_____ test_valid_selectors_retain_query_validation[17-debe ser texto-all] ______
+
+field = 'all', term = 17, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_____ test_valid_selectors_retain_query_validation[17-debe ser texto-name] _____
+
+field = 'name', term = 17, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[17-debe ser texto-email] _____
+
+field = 'email', term = 17, message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_____ test_valid_selectors_retain_query_validation[ana-debe ser texto-all] _____
+
+field = 'all', term = b'ana', message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[ana-debe ser texto-name] _____
+
+field = 'name', term = b'ana', message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+____ test_valid_selectors_retain_query_validation[ana-debe ser texto-email] ____
+
+field = 'email', term = b'ana', message = 'debe ser texto'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize(
+        ("term", "message"),
+        [("", "no vacío"), (" \t\n", "no vacío"), (None, "debe ser texto"),
+         (17, "debe ser texto"), (b"ana", "debe ser texto")],
+    )
+    def test_valid_selectors_retain_query_validation(field, term, message):
+        with pytest.raises(ValueError, match=message):
+>           search_customers(term, CUSTOMERS, field=field)
+E           TypeError: search_customers() got an unexpected keyword argument 'field'
+
+tests/test_search_fields.py:90: TypeError
+_ test_cli_field_before_or_after_term_preserves_formatting[all-  ANA  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True] _
+
+before_term = True, field = 'all', term = '  ANA  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...ode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field   ANA  \n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[all-  ANA  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False] _
+
+before_term = False, field = 'all', term = '  ANA  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[name-  L\xd3PEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True] _
+
+before_term = True, field = 'name', term = '  LÓPEZ  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...e=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field   LÓPEZ  \n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[name-  L\xd3PEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False] _
+
+before_term = False, field = 'name', term = '  LÓPEZ  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[email-  ANA.LOPEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True] _
+
+before_term = True, field = 'email', term = '  ANA.LOPEZ  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-... stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field   ANA.LOPEZ  \n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[email-  ANA.LOPEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False] _
+
+before_term = False, field = 'email', term = '  ANA.LOPEZ  '
+expected = 'C001 | Ana López | ana.lopez@example.com\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[name-example.com-No se encontraron clientes.\n-True] _
+
+before_term = True, field = 'name', term = 'example.com'
+expected = 'No se encontraron clientes.\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field example.com\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[name-example.com-No se encontraron clientes.\n-False] _
+
+before_term = False, field = 'name', term = 'example.com'
+expected = 'No se encontraron clientes.\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[email-L\xf3pez-No se encontraron clientes.\n-True] _
+
+before_term = True, field = 'email', term = 'López'
+expected = 'No se encontraron clientes.\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field López\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+_ test_cli_field_before_or_after_term_preserves_formatting[email-L\xf3pez-No se encontraron clientes.\n-False] _
+
+before_term = False, field = 'email', term = 'López'
+expected = 'No se encontraron clientes.\n'
+
+    @pytest.mark.parametrize("before_term", [True, False])
+    @pytest.mark.parametrize(
+        ("field", "term", "expected"),
+        [
+            ("all", "  ANA  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "  LÓPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("email", "  ANA.LOPEZ  ", "C001 | Ana López | ana.lopez@example.com\n"),
+            ("name", "example.com", "No se encontraron clientes.\n"),
+            ("email", "López", "No se encontraron clientes.\n"),
+        ],
+    )
+    def test_cli_field_before_or_after_term_preserves_formatting(before_term, field, term, expected):
+        arguments = ("--field", field, term) if before_term else (term, "--field", field)
+        result = run_cli(*arguments)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n').returncode
+
+tests/test_cli_fields.py:38: AssertionError
+___________ test_cli_default_and_all_have_identical_ordered_results ____________
+
+    def test_cli_default_and_all_have_identical_ordered_results():
+        default = run_cli("example.com")
+        explicit = run_cli("example.com", "--field", "all")
+>       assert default.returncode == explicit.returncode == 0
+E       AssertionError: assert 0 == 2
+E        +  where 0 = CompletedProcess(args=['$PYTHON', '-...xample.com\nC003 | Carla Méndez | carla.mendez@example.com\nC004 | Daniel Ruiz | daniel.ruiz@example.com\n', stderr='').returncode
+E        +  and   2 = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n').returncode
+
+tests/test_cli_fields.py:46: AssertionError
+___________________ test_cli_selected_field_no_matches[all] ____________________
+
+field = 'all'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_cli_selected_field_no_matches(field):
+        result = run_cli("absent", "--field", field)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n').returncode
+
+tests/test_cli_fields.py:57: AssertionError
+___________________ test_cli_selected_field_no_matches[name] ___________________
+
+field = 'name'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_cli_selected_field_no_matches(field):
+        result = run_cli("absent", "--field", field)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n').returncode
+
+tests/test_cli_fields.py:57: AssertionError
+__________________ test_cli_selected_field_no_matches[email] ___________________
+
+field = 'email'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    def test_cli_selected_field_no_matches(field):
+        result = run_cli("absent", "--field", field)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n').returncode
+
+tests/test_cli_fields.py:57: AssertionError
+___________ test_cli_selected_field_retains_blank_query_errors[-all] ___________
+
+field = 'all', term = ''
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+__________ test_cli_selected_field_retains_blank_query_errors[-name] ___________
+
+field = 'name', term = ''
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n' = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+__________ test_cli_selected_field_retains_blank_query_errors[-email] __________
+
+field = 'email', term = ''
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+________ test_cli_selected_field_retains_blank_query_errors[ \t\n-all] _________
+
+field = 'all', term = ' \t\n'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field all\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+________ test_cli_selected_field_retains_blank_query_errors[ \t\n-name] ________
+
+field = 'name', term = ' \t\n'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n' = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field name\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+_______ test_cli_selected_field_retains_blank_query_errors[ \t\n-email] ________
+
+field = 'email', term = ' \t\n'
+
+    @pytest.mark.parametrize("field", ["all", "name", "email"])
+    @pytest.mark.parametrize("term", ["", " \t\n"])
+    def test_cli_selected_field_retains_blank_query_errors(field, term):
+        result = run_cli(term, "--field", field)
+        assert result.returncode == 2
+>       assert "Error:" in result.stderr
+E       AssertionError: assert 'Error:' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email\n').stderr
+
+tests/test_cli_fields.py:67: AssertionError
+__________ test_cli_rejects_invalid_selector_with_usage_only[True-id] __________
+
+field = 'id', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+_________ test_cli_rejects_invalid_selector_with_usage_only[True-Name] _________
+
+field = 'Name', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+_________ test_cli_rejects_invalid_selector_with_usage_only[True-ALL] __________
+
+field = 'ALL', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[True-EMAIL] _________
+
+field = 'EMAIL', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+___________ test_cli_rejects_invalid_selector_with_usage_only[True-] ___________
+
+field = '', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+__________ test_cli_rejects_invalid_selector_with_usage_only[True- ] ___________
+
+field = ' ', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[True- name] _________
+
+field = ' name', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[True-email ] ________
+
+field = 'email ', before_term = True
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ana\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+_________ test_cli_rejects_invalid_selector_with_usage_only[False-id] __________
+
+field = 'id', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field id\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field id\n' = CompletedProcess(args=['$PYTHON', '-...turncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field id\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[False-Name] _________
+
+field = 'Name', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field Name\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field Name\n' = CompletedProcess(args=['$PYTHON', '-...rncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field Name\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+_________ test_cli_rejects_invalid_selector_with_usage_only[False-ALL] _________
+
+field = 'ALL', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ALL\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ALL\n' = CompletedProcess(args=['$PYTHON', '-...urncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field ALL\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[False-EMAIL] ________
+
+field = 'EMAIL', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field EMAIL\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field EMAIL\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field EMAIL\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+__________ test_cli_rejects_invalid_selector_with_usage_only[False-] ___________
+
+field = '', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field \n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field \n' = CompletedProcess(args=['$PYTHON', '-...returncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field \n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+__________ test_cli_rejects_invalid_selector_with_usage_only[False- ] __________
+
+field = ' ', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  \n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  \n' = CompletedProcess(args=['$PYTHON', '-...eturncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  \n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+________ test_cli_rejects_invalid_selector_with_usage_only[False- name] ________
+
+field = ' name', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  name\n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  name\n' = CompletedProcess(args=['$PYTHON', '-...ncode=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field  name\n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+_______ test_cli_rejects_invalid_selector_with_usage_only[False-email ] ________
+
+field = 'email ', before_term = False
+
+    @pytest.mark.parametrize("field", ["id", "Name", "ALL", "EMAIL", "", " ", " name", "email "])
+    @pytest.mark.parametrize("before_term", [True, False])
+    def test_cli_rejects_invalid_selector_with_usage_only(field, before_term):
+        arguments = ("--field", field, "ana") if before_term else ("ana", "--field", field)
+        result = run_cli(*arguments)
+        assert result.returncode == 2
+        assert "usage:" in result.stderr
+>       assert "invalid choice" in result.stderr
+E       AssertionError: assert 'invalid choice' in 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email \n'
+E        +  where 'usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email \n' = CompletedProcess(args=['$PYTHON', '-...code=2, stdout='', stderr='usage: __main__.py [-h] term\n__main__.py: error: unrecognized arguments: --field email \n').stderr
+
+tests/test_cli_fields.py:79: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_search_fields.py::test_default_and_explicit_all_preserve_two_argument_results
+FAILED tests/test_search_fields.py::test_selected_field_matches_partial_trimmed_query_in_single_pass[all-expected_indices0]
+FAILED tests/test_search_fields.py::test_selected_field_matches_partial_trimmed_query_in_single_pass[name-expected_indices1]
+FAILED tests/test_search_fields.py::test_selected_field_matches_partial_trimmed_query_in_single_pass[email-expected_indices2]
+FAILED tests/test_search_fields.py::test_selected_field_retains_unicode_casefold[name]
+FAILED tests/test_search_fields.py::test_selected_field_retains_unicode_casefold[email]
+FAILED tests/test_search_fields.py::test_selected_field_preserves_interior_spaces[ -name]
+FAILED tests/test_search_fields.py::test_selected_field_preserves_interior_spaces[ -email]
+FAILED tests/test_search_fields.py::test_selected_field_preserves_interior_spaces[  -name]
+FAILED tests/test_search_fields.py::test_selected_field_preserves_interior_spaces[  -email]
+FAILED tests/test_search_fields.py::test_selected_field_returns_empty_list_for_no_match[all]
+FAILED tests/test_search_fields.py::test_selected_field_returns_empty_list_for_no_match[name]
+FAILED tests/test_search_fields.py::test_selected_field_returns_empty_list_for_no_match[email]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[ ]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[Name]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[ALL]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[EMAIL]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[ name]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[email ]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[id]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[None]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[1]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[True]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[name]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[field12]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[field13]
+FAILED tests/test_search_fields.py::test_invalid_selectors_raise_value_error_even_without_records[field14]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[-no vac\xedo-all]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[-no vac\xedo-name]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[-no vac\xedo-email]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-all]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-name]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ \t\n-no vac\xedo-email]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[None-debe ser texto-all]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[None-debe ser texto-name]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[None-debe ser texto-email]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[17-debe ser texto-all]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[17-debe ser texto-name]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[17-debe ser texto-email]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ana-debe ser texto-all]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ana-debe ser texto-name]
+FAILED tests/test_search_fields.py::test_valid_selectors_retain_query_validation[ana-debe ser texto-email]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[all-  ANA  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[all-  ANA  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[name-  L\xd3PEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[name-  L\xd3PEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[email-  ANA.LOPEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-True]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[email-  ANA.LOPEZ  -C001 | Ana L\xf3pez | ana.lopez@example.com\n-False]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[name-example.com-No se encontraron clientes.\n-True]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[name-example.com-No se encontraron clientes.\n-False]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[email-L\xf3pez-No se encontraron clientes.\n-True]
+FAILED tests/test_cli_fields.py::test_cli_field_before_or_after_term_preserves_formatting[email-L\xf3pez-No se encontraron clientes.\n-False]
+FAILED tests/test_cli_fields.py::test_cli_default_and_all_have_identical_ordered_results
+FAILED tests/test_cli_fields.py::test_cli_selected_field_no_matches[all] - As...
+FAILED tests/test_cli_fields.py::test_cli_selected_field_no_matches[name] - A...
+FAILED tests/test_cli_fields.py::test_cli_selected_field_no_matches[email] - ...
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[-all]
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[-name]
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[-email]
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[ \t\n-all]
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[ \t\n-name]
+FAILED tests/test_cli_fields.py::test_cli_selected_field_retains_blank_query_errors[ \t\n-email]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-id]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-Name]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-ALL]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-EMAIL]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True- ]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True- name]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[True-email ]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-id]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-Name]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-ALL]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-EMAIL]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False- ]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False- name]
+FAILED tests/test_cli_fields.py::test_cli_rejects_invalid_selector_with_usage_only[False-email ]
+79 failed, 5 passed in 1.59s
+Exit code: 1
