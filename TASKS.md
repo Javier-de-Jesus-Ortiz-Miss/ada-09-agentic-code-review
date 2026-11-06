@@ -15,3 +15,7 @@ I sequence work against `REQUIREMENTS.md` and `SPEC.md`; I do not define product
 ## Controlled Change
 
 I select T-02 / CR-ADA08-01 in `TASK_UNDER_TEST.md`. I implement the same task from the same functional baseline in both worktrees. I preserve the BEFORE patch as evidence and use only the AFTER implementation in the final active source tree.
+
+## ADA-09 Work Sequence
+
+I execute T-09.1 approved contract preparation; T-09.2 isolated coder implementation of FR-07 / AC-11 through AC-15; T-09.3 deterministic verification; T-09.4 independent read-only review; T-09.5 human finding decisions; T-09.6 accepted fixes if required; T-09.7 independent re-review; and T-09.8 final human readiness decision and PR evidence. I keep the original ADA-08 tasks as historical context.

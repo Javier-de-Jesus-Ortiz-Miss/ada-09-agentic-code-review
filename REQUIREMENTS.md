@@ -12,6 +12,7 @@ I need to find an existing customer by a single name or email search term.
 - **FR-04 - Identifiable results:** I show at least the customer identifier, name and email for each result.
 - **FR-05 - No matches:** I report that no customers were found and do not show unrelated records.
 - **FR-06 - Query validation:** I reject empty or whitespace-only terms and provide a useful corrective message.
+- **FR-07 - Field selection:** I accept an optional selector `all`, `name` or `email`. I search only the selected existing field; I preserve unified name/email matching when the selector is omitted or equals `all`. I reject invalid selectors without changing runtime dependencies or public two-argument compatibility.
 
 ## Nonfunctional Requirements
 
@@ -34,4 +35,8 @@ I need to find an existing customer by a single name or email search term.
 
 ## Change Control
 
-I preserve the inherited FR/NFR IDs and behavior. I translate this active contract into English and first person for ADA-08. I clarify the existing non-empty textual customer ID invariant only in the Domain Model and AC-10 of `SPEC.md`; I do not introduce a separate filtering or persistence feature. I retain original documents in `results/prior/ada05-project/`.
+I preserve the inherited FR/NFR IDs and behavior. I translate this active contract into English and first person for ADA-08. I clarify the existing non-empty textual customer ID invariant only in the Domain Model and AC-10 of `SPEC.md`; I define field selection for existing name/email data under CR-ADA09-01; I do not introduce additional data fields or persistence. I retain original documents in `results/prior/ada05-project/`.
+
+## ADA-09 Change Authorization
+
+I approved CR-ADA09-01 and its implementation/test/review plan on 2026-11-05. I define FR-07 and the related acceptance criteria before the coder begins; I keep the Change Request as a reference to these normative sources.

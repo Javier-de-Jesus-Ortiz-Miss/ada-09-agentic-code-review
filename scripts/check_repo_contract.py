@@ -18,6 +18,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 ESSENTIAL = (
+    'CHANGE_REQUEST.md', 'docs/REVIEW_RULES.md', 'scripts/check_security.py',
+    'scripts/check_review_evidence.py',
     'AGENTS.md', 'README.md', 'REQUIREMENTS.md', 'SPEC.md', 'ARCHITECTURE.md',
     'TASKS.md', 'TASK_UNDER_TEST.md', 'REPOSITORY_READINESS_AUDIT.md', 'AI_USAGE_LOG.md',
     'docs/REPO_MAP.md', 'docs/EXPERIMENT.md', 'docs/traceability.md',

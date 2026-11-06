@@ -2,7 +2,7 @@
 
 ## Entry Points
 
-I begin at [the operating contract](../AGENTS.md) and [the README](../README.md). I resolve behavior in [requirements](../REQUIREMENTS.md) and [specification](../SPEC.md), dependencies in [architecture](../ARCHITECTURE.md), sequencing in [tasks](../TASKS.md), and the bounded change in [the fixed task](../TASK_UNDER_TEST.md).
+I begin at [the approved Change Request](../CHANGE_REQUEST.md), [the review rules](REVIEW_RULES.md), and [the operating contract](../AGENTS.md) and [the README](../README.md). I resolve behavior in [requirements](../REQUIREMENTS.md) and [specification](../SPEC.md), dependencies in [architecture](../ARCHITECTURE.md), sequencing in [tasks](../TASKS.md), and the bounded change in [the fixed task](../TASK_UNDER_TEST.md).
 
 | Question I need to answer | File I inspect |
 |---|---|
@@ -34,3 +34,7 @@ I do not modify `results/prior/`, `skills/`, `src/customer_search/data.py`, `TAS
 ## Scope of Local Contracts
 
 I apply root `AGENTS.md` across the active repository. I keep inherited contracts under `results/prior/` as historical evidence, outside active source navigation. I preserve the ADA-07 skill as a reusable local reference under `skills/`; I do not install a third-party collection or activate unrelated skills during this task.
+
+## ADA-09 Review Navigation
+
+I inspect search.py and cli.py for field selection and the new focused test modules for domain and CLI behavior. I locate the full review cycle in results/run-context.md, coder-report.md, verification-report.md, pr.diff, commits.txt, review-contract.md, review-report.md, human-review-decisions.md, re-review-report.md and PR_EVIDENCE.md. I use CHANGE_REQUEST as my active task and preserve TASK_UNDER_TEST as historical ADA-08 evidence.

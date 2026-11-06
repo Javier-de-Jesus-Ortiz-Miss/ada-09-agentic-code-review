@@ -17,7 +17,7 @@ I use a local Python CLI over in-memory records. I keep argument handling, domai
 
 ## Data Flow and Interfaces
 
-I pass the CLI term to `search_customers(term: str, customers: Iterable[Customer]) -> list[Customer]`. I construct `Customer` before search and reject an invalid identifier in its `__post_init__` method. I return a new result list in source order, then format it in the CLI.
+I pass the CLI term to `search_customers(term: str, customers: Iterable[Customer], *, field: str = "all") -> list[Customer]`. I construct `Customer` before search and reject an invalid identifier in its `__post_init__` method. I return a new result list in source order, then format it in the CLI.
 
 ## Boundaries
 
@@ -30,3 +30,7 @@ I verify domain and CLI behavior with pytest. I use Ruff for lint and my contrac
 ## Operational Boundaries
 
 I keep baseline and historical evidence immutable under `docs/protected-paths.json`. I exclude the local `.venv/`, `work/` trees and delivery `outputs/` from source history. I reserve destructive operations, product requirement changes and external writes for explicit human decisions under `AGENTS.md`.
+
+## Field Selection Boundary
+
+I implement selector validation and matching in search.py. I limit cli.py to argument parsing, delegation and output; I do not duplicate field-matching business rules in CLI. I preserve CLI -> search -> models and CLI -> data -> models. I retain standard-library-only runtime imports and backward compatibility for existing callers.
