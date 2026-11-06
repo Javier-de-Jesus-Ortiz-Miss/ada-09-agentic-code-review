@@ -1,0 +1,33 @@
+{
+  "change_id": "CR-ADA09-01",
+  "base_commit": "057bd7bd0791fc2387a0a79b07c8e44480419c61",
+  "candidate_commit": "b32491e514241cc8110c34cdd9617948b5c347c7",
+  "final_code_commit": "be6825e495ec02f84d6534056c5084e8e77996e2",
+  "coder_context": "/root/ada09_coder",
+  "reviewer_context": "/root/ada09_reviewer",
+  "rereviewer_context": "/root/ada09_rereviewer",
+  "source_unchanged_during_review": true,
+  "gate": "PASS",
+  "findings": [
+    {
+      "id": "RF-01",
+      "severity": "SHOULD FIX",
+      "requirement": "CHANGE_REQUEST Verification / AC-15 evidence traceability",
+      "file": "results/pr.diff",
+      "line": 1,
+      "evidence": "The original patch matched the earlier 57f464c boundary instead of the reviewed b32491e candidate and had no explicit scope label.",
+      "risk": "I could audit an earlier snapshot without identifying its boundary.",
+      "recommendation": "I preserve the earlier snapshot and generate complete immutable candidate evidence with exact scope and hashes.",
+      "decision": "ACCEPTED",
+      "human_reason": "I accept the demonstrated auditability issue and limit the correction to evidence.",
+      "resolution": "RESOLVED"
+    }
+  ],
+  "human_decisions_approved": true,
+  "final_human_approval": false,
+  "approved_by": "",
+  "approved_date": "",
+  "new_must_fix": 0,
+  "reviewer_recommendation": "READY FOR HUMAN REVIEW",
+  "pull_request": "https://github.com/Javier-de-Jesus-Ortiz-Miss/ada-09-agentic-code-review/pull/1"
+}

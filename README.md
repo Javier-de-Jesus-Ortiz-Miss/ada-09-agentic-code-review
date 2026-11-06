@@ -51,3 +51,7 @@ I preserve `main` as the review baseline and implement the approved Change Reque
 ## Historical Context
 
 I preserve the inherited ADA-08 BEFORE/AFTER artifacts as earlier evidence. I use the ADA-09 run context, coder report, verification report, review contract, independent findings, human decisions, re-review and PR evidence for this activity. I retain technical decisions in AI_USAGE_LOG without personal dialogue or transcripts.
+
+## Delivery Evidence
+
+I retain [the real Pull Request](https://github.com/Javier-de-Jesus-Ortiz-Miss/ada-09-agentic-code-review/pull/1), [my consolidated evidence](results/PR_EVIDENCE.md), [the independent review](results/review-report.md), [my finding decisions](results/human-review-decisions.md), [the re-review](results/re-review-report.md), and [my individual reflection](docs/ADA09_REFLECTION.md). I expose the complete activity on the delivery branch and preserve main as the review baseline. I leave merge under human control.

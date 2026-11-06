@@ -1,0 +1,36 @@
+results/evidence/ada09-fix-whitespace.log:3: trailing whitespace.
++++ 
+results/evidence/ada09-fix-whitespace.log:5: trailing whitespace.
++++ 
+results/evidence/ada09-fix-whitespace.log:7: trailing whitespace.
++++ 
+results/evidence/ada09-fix-whitespace.log:9: trailing whitespace.
++++ 
+results/evidence/ada09-fix-whitespace.log:11: trailing whitespace.
++++ 
+results/evidence/ada09-fix-whitespace.log:13: trailing whitespace.
++++ 
+results/evidence/ada09-initial-implementation.diff:8: trailing whitespace.
++ 
+results/evidence/ada09-initial-implementation.diff:34: trailing whitespace.
++ 
+results/evidence/ada09-initial-implementation.diff:1691: trailing whitespace.
++ 
+results/evidence/ada09-initial-implementation.diff:1704: trailing whitespace.
++ 
+results/evidence/ada09-initial-implementation.diff:1705: trailing whitespace.
++ 
+results/evidence/ada09-initial-implementation.diff:1717: trailing whitespace.
++ 
+results/pr.diff:1755: trailing whitespace.
+++ 
+results/pr.diff:1781: trailing whitespace.
+++ 
+results/pr.diff:3438: trailing whitespace.
+++ 
+results/pr.diff:3451: trailing whitespace.
+++ 
+results/pr.diff:3452: trailing whitespace.
+++ 
+results/pr.diff:3464: trailing whitespace.
+++ 

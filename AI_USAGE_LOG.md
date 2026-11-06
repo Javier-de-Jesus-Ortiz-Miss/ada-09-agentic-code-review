@@ -1,25 +1,25 @@
 # Mi bitácora técnica de uso de IA - ADA-09
 
-## 1. Definición del cambio
+## 1. Definición del Change Request
 
-Yo definí CR-ADA09-01 para seleccionar los campos existentes de búsqueda y preservar la compatibilidad. Yo aprobé los requisitos, los criterios de aceptación y el plan antes de iniciar la implementación.
+Yo definí CR-ADA09-01 para seleccionar campos existentes y conservar el comportamiento por defecto. Yo fijé FR-07 y AC-11 a AC-15 antes de implementar y aprobé el alcance y el plan. Yo preservé el baseline y las fronteras de arquitectura.
 
-## 2. Plan de implementación
+## 2. Plan del implementador
 
-Yo organicé primero los contratos y el entorno de validación. Yo separé la implementación de producto, la revisión independiente y la decisión humana.
+Yo organicé lectura de contratos, pruebas reales antes del código, implementación en dominio/CLI y gate completo. Yo utilicé un contexto nuevo para implementar y reservé la revisión para otro contexto independiente. Yo separé las decisiones humanas de las recomendaciones automáticas.
 
 ## 3. Implementación y verificación
 
-Yo registraré los resultados técnicos del candidato cuando termine la ejecución del implementador.
+Yo conservé 60 casos iniciales y añadí 84 casos focalizados. Yo registré 79 fallos esperados y cinco casos ya válidos antes del cambio, 84 casos focalizados satisfactorios después y 144 casos totales satisfactorios. Yo utilicé la función real y subprocesses reales, sin debilitar pruebas ni añadir dependencias de runtime.
 
 ## 4. Revisión independiente
 
-Yo registraré los findings sustentados en el código y en la evidencia del candidato.
+Yo sometí el candidato a un revisor independiente en lectura. Yo conservé el contrato de revisión, la comprobación de APIs reales, los probes y los hashes antes/después. Yo obtuve cero MUST FIX, un SHOULD FIX y cero OPTIONAL. Yo identifiqué RF-01 como una ambigüedad en el límite de la evidencia exportada.
 
-## 5. Decisiones de revisión
+## 5. Decisión humana
 
-Yo registraré cada decisión sobre findings con su fundamento técnico y sin transcripciones.
+Yo acepté RF-01 porque el diff y la lista de commits podían interpretarse como una versión distinta de la revisada. Yo autoricé únicamente identificar los límites, conservar snapshots históricos y generar la evidencia completa con comandos y hashes. Yo mantuve intactos código, tests, requisitos y dependencias.
 
-## 6. Correcciones y re-review
+## 6. Corrección y re-review
 
-Yo registraré los cambios aceptados, la validación final y el estado confirmado por el revisor.
+Yo conservé la exportación anterior, documenté su límite y generé el snapshot completo del candidato. Yo repetí el gate y mantuve 144 casos satisfactorios. Yo comprobé la corrección en otro contexto independiente y obtuve RF-01 RESOLVED sin nuevos MUST FIX. Yo mantuve la decisión final de readiness separada de las recomendaciones del agente.

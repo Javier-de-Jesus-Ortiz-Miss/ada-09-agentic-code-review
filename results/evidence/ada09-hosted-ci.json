@@ -1,0 +1,47 @@
+{
+  "query_status": 200,
+  "runs": [
+    {
+      "id": 42141869139,
+      "head_sha": "be6825e495ec02f84d6534056c5084e8e77996e2",
+      "head_branch": "ada09/cr-search-field",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Javier-de-Jesus-Ortiz-Miss/ada-09-agentic-code-review/actions/runs/42141869139",
+      "event": "workflow_dispatch",
+      "jobs": [
+        {
+          "name": "verify (3.11)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "verify (3.13)",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 42140790973,
+      "head_sha": "b32491e514241cc8110c34cdd9617948b5c347c7",
+      "head_branch": "ada09/cr-search-field",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Javier-de-Jesus-Ortiz-Miss/ada-09-agentic-code-review/actions/runs/42140790973",
+      "event": "workflow_dispatch",
+      "jobs": [
+        {
+          "name": "verify (3.13)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "verify (3.11)",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ]
+}
